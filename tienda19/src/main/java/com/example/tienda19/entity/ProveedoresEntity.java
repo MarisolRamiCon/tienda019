@@ -25,7 +25,4 @@ public class ProveedoresEntity {
     @Column(name = "telefono")
     private String telefono;
 
-
-
-
 }
