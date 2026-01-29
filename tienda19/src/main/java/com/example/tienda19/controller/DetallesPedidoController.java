@@ -3,9 +3,7 @@ package com.example.tienda19.controller;
 import com.example.tienda19.entity.DetallesPedidoEntity;
 import com.example.tienda19.service.impl.DetallesPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +14,26 @@ public class DetallesPedidoController {
     @Autowired
     DetallesPedidoService detallesPedidoService;
     @GetMapping("/detallesPedido")
-    public List<DetallesPedidoEntity> readAll(){return detallesPedidoService.readAll();
+    public List<DetallesPedidoEntity> readAll(){return detallesPedidoService.readAll();}
+
+    @GetMapping("/detallesPedido/{id}")
+    public DetallesPedidoEntity readById(@PathVariable Integer id){
+        return detallesPedidoService.readById(id);
+
+    }
+    @PostMapping("/detallesPedido") //Annotation para crear
+    public DetallesPedidoEntity create(@RequestBody DetallesPedidoEntity detallesPedido){
+        return detallesPedidoService.create(detallesPedido);
+    }
+    //Actualizar
+    @PutMapping("/detallesPedido/{id}")
+    public String updateById(@PathVariable Integer id, @RequestBody DetallesPedidoEntity detallesPedido){
+        return detallesPedidoService.updateById(id,detallesPedido);
+    }
+
+    //Borrar
+    @DeleteMapping("/detallesPedido/{id}")
+    public String deleteById(@PathVariable Integer id){
+        return detallesPedidoService.deleteById(id);
     }
 }

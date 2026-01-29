@@ -24,5 +24,4 @@ public class ProveedoresEntity {
     private String correoElectronico;
     @Column(name = "telefono")
     private String telefono;
-
 }

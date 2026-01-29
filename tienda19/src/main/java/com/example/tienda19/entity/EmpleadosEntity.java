@@ -29,6 +29,8 @@ import java.util.Date;
         private Integer salario;
         @Column(name = "fechaDeContratacion")
         private Date fechaDeContratacion;
+        @Column(name = "activo")
+        private Boolean activo;
 
     }
 

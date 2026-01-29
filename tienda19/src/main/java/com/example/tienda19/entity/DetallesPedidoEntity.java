@@ -25,5 +25,7 @@ import lombok.NoArgsConstructor;
         private Integer cantidad;
         @Column(name = "precio_unitario")
         private Integer precioUnitario;
+        @Column(name = "activo")
+        private Boolean activo;
     }
 
