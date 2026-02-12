@@ -13,26 +13,26 @@ public class DetallesPedidoController {
 
     @Autowired
     DetallesPedidoService detallesPedidoService;
-    @GetMapping("/detallesPedido")
+    @GetMapping("/detalles_pedido")
     public List<DetallesPedidoEntity> readAll(){return detallesPedidoService.readAll();}
 
-    @GetMapping("/detallesPedido/{id}")
+    @GetMapping("/detalles_pedido/{id}")
     public DetallesPedidoEntity readById(@PathVariable Integer id){
         return detallesPedidoService.readById(id);
 
     }
-    @PostMapping("/detallesPedido") //Annotation para crear
+    @PostMapping("/detalles_pedido") //Annotation para crear
     public DetallesPedidoEntity create(@RequestBody DetallesPedidoEntity detallesPedido){
         return detallesPedidoService.create(detallesPedido);
     }
     //Actualizar
-    @PutMapping("/detallesPedido/{id}")
+    @PutMapping("/detalles_pedido/{id}")
     public String updateById(@PathVariable Integer id, @RequestBody DetallesPedidoEntity detallesPedido){
         return detallesPedidoService.updateById(id,detallesPedido);
     }
 
     //Borrar
-    @DeleteMapping("/detallesPedido/{id}")
+    @DeleteMapping("/detalles_pedido/{id}")
     public String deleteById(@PathVariable Integer id){
         return detallesPedidoService.deleteById(id);
     }

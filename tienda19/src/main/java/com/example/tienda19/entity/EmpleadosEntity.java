@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -27,8 +28,8 @@ import java.util.Date;
         private String puesto;
         @Column(name = "salario")
         private Integer salario;
-        @Column(name = "fechaDeContratacion")
-        private Date fechaDeContratacion;
+        @Column(name = "fecha_de_contratacion")
+        private LocalDateTime fechaDeContratacion;
         @Column(name = "activo")
         private Boolean activo;
 
