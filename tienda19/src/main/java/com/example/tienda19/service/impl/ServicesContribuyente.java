@@ -5,8 +5,6 @@ import com.example.tienda19.feign.IContribuyente;
 import com.example.tienda19.model.ContribuyenteMockApi;
 import feign.FeignException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,11 +26,9 @@ public List<ContribuyenteMockApi> readALL() {return iContribuyente.readALL();
     public ContribuyenteMockApi create(ContribuyenteMockApi contribuyenteMockApi){return iContribuyente.create(contribuyenteMockApi);}
 
 
-    public ContribuyenteMockApi update(@PathVariable("id") int id, @RequestBody ContribuyenteMockApi contribuyenteMockApi) {
         return iContribuyente.update(id, contribuyenteMockApi);
     }
     @Override
-    public  String delateLogico(@PathVariable("id") Integer id) {
         try {
             Optional<ContribuyenteMockApi> contribuyenteBuscado = Optional.ofNullable(iContribuyente.readById(id));
 

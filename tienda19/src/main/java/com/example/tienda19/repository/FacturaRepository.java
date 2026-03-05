@@ -6,16 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface FacturaRepository extends JpaRepository<FacturaEntity, Integer> {
 
 
 
     @Query(value = "SELECT * FROM factura WHERE factura_monto >= 1", nativeQuery = true)
-    public List<FacturaEntity> FacturaAlamacenada();
-
-    static List<FacturaEntity> findALL() {
-        return findALL();
-    }
 
 
 
