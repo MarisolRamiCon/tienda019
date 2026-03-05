@@ -26,11 +26,27 @@ public class ContribuyenteMockApiController {
     }
 
     @PostMapping("CrearContribuyente")
-    String create(@RequestBody ContribuyenteMockApi contribuyenteMockApi) {
+    public String create(@RequestBody ContribuyenteMockApi contribuyenteMockApi) {
         String c = "Se creo nuevo registro";
         return c + servicesContribuyente.create(contribuyenteMockApi);
     }
+
+
+    // Actualizar contribuyente
+    @PutMapping("/{id}")
+    public ContribuyenteMockApi update(
+            @PathVariable Integer id,
+            @RequestBody ContribuyenteMockApi contribuyenteMockApi){
+        return servicesContribuyente.update(id, contribuyenteMockApi);
+    }
+
+    // Borrado lógico
+    @DeleteMapping("/{id}")
+    public String deleteLogico(@PathVariable Integer id){
+        return servicesContribuyente.deleteLogico(id);
+    }
 }
+
 
 
 
