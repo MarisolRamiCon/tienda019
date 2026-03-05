@@ -30,15 +30,20 @@ public class ContribuyenteMockApiController {
         String c = "Se creo nuevo registro";
         return c + servicesContribuyente.create(contribuyenteMockApi);
     }
-    @PutMapping("Actualizar")
-    String update(@RequestBody ContribuyenteMockApi contribuyenteMockApi, @PathVariable Integer id){servicesContribuyente.update(id, contribuyenteMockApi);
-    String a = "Actualiza El campo";
-     return a + id;
-    }
-    @DeleteMapping("Eliminar")
-    String DelateLogico(@PathVariable Integer id){return servicesContribuyente.delateLogico(id);}
+
+
+@PutMapping("Actualizar/{id}")
+String update(@RequestBody ContribuyenteMockApi contribuyenteMockApi,
+              @PathVariable Integer id) {
+    servicesContribuyente.update(id, contribuyenteMockApi);
+    return "Actualiza El campo" + id;
 }
 
+@DeleteMapping("Eliminar/{id}")
+String DelateLogico(@PathVariable Integer id) {
+    return servicesContribuyente.delateLogico(id);
+}
+}
 
 
 

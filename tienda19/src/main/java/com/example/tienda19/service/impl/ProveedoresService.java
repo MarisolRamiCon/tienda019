@@ -25,6 +25,7 @@ public class ProveedoresService implements IProveedoresService {
                 .toList();
     }
 
+
     @Override
     public ProveedoresEntity readById(Integer id) {
         Optional<ProveedoresEntity> proveedoresABuscar = proveedoresRepository.findById(id);

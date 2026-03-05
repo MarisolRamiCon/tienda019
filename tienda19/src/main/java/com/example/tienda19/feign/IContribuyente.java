@@ -7,19 +7,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@FeignClient(value = "Rh" , url="https://68d647ddc2a1754b426a2234.mockapi.io/api/v1/Aspirante")
+@FeignClient(value = "Rh", url="https://68d647ddc2a1754b426a2234.mockapi.io/api/v1/Aspirante")
 public interface IContribuyente {
-@GetMapping("/Rh")
+@GetMapping
     List<ContribuyenteMockApi> readALL();
-@PostMapping("/Rh")
-ContribuyenteMockApi readById (@PathVariable("id") Integer id);
-@DeleteMapping("/Rh/{id}")
-ContribuyenteMockApi create (@RequestBody ContribuyenteMockApi contribuyenteMockApi);
+@GetMapping("/{id}")
+ContribuyenteMockApi readById(@PathVariable Integer id);
+@PostMapping
+ContribuyenteMockApi create(@RequestBody ContribuyenteMockApi contribuyenteMockApi);
 
-@PutMapping ContribuyenteMockApi update(@PathVariable("id") int id, @RequestBody ContribuyenteMockApi contribuyenteMockApi);
-@GetMapping("/Rh/{id}")
+@PutMapping("/{id}") ContribuyenteMockApi update(@PathVariable("id") int id, @RequestBody ContribuyenteMockApi contribuyenteMockApi);
 
-    String delateLogico(@PathVariable("id") Integer id);
+@DeleteMapping("/{id}")  String delateLogico(@PathVariable("id") Integer id);
 
 
 }

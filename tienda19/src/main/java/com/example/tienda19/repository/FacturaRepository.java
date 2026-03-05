@@ -10,7 +10,7 @@ public interface FacturaRepository extends JpaRepository<FacturaEntity, Integer>
 
 
 
-    @Query(value = "SELECT * FROM factura_monto WHERE factura_monto >= 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM factura WHERE factura_monto >= 1", nativeQuery = true)
     public List<FacturaEntity> FacturaAlamacenada();
 
     static List<FacturaEntity> findALL() {
