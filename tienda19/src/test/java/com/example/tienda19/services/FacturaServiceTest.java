@@ -1,10 +1,11 @@
 package com.example.tienda19.services;
 
+import com.example.tienda19.controller.FacturaService;
 import com.example.tienda19.entity.FacturaEntity;
 import com.example.tienda19.repository.FacturaRepository;
 import com.example.tienda19.request.RequetsFactura;
 import com.example.tienda19.response.ResponseFactura;
-import com.example.tienda19.service.impl.FacturaService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -18,7 +19,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class FacturaServiceTest {
+public class FacturaServiceTest {
 
     @Mock
     private FacturaRepository facturaRepository;

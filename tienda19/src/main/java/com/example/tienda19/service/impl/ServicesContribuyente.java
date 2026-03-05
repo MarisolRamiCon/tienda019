@@ -16,19 +16,23 @@ public class ServicesContribuyente implements IContribuyente {
         this.iContribuyente = iContribuyente;
     }
     @Override
-public List<ContribuyenteMockApi> readALL() {return iContribuyente.readALL();
+    public List<ContribuyenteMockApi> readALL() {return iContribuyente.readALL();
     }
-@Override
+    @Override
     public ContribuyenteMockApi readById(Integer id){
-    return  iContribuyente.readById(id);
+        return  iContribuyente.readById(id);
     }
     @Override
     public ContribuyenteMockApi create(ContribuyenteMockApi contribuyenteMockApi){return iContribuyente.create(contribuyenteMockApi);}
 
 
+
+    public ContribuyenteMockApi update(Integer id, ContribuyenteMockApi contribuyenteMockApi) {
         return iContribuyente.update(id, contribuyenteMockApi);
     }
+
     @Override
+    public String deleteLogico(Integer id) {
         try {
             Optional<ContribuyenteMockApi> contribuyenteBuscado = Optional.ofNullable(iContribuyente.readById(id));
 
@@ -47,6 +51,8 @@ public List<ContribuyenteMockApi> readALL() {return iContribuyente.readALL();
             return "Ocurrió un error inesperado: " + e.getMessage();
         }
     }
-    }
+}
+
+
 
 

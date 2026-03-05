@@ -18,18 +18,18 @@ import java.util.List;
 
 public class FacturaController {
     @Autowired
-    IFacturaServices facturaService;
+    IFacturaServices facturaServices;
 
 
 
     @GetMapping("/facturas")
     public List<FacturaEntity> readAll() {
-        return facturaService.readALL();
+        return facturaServices.readALL();
     }
 
     @GetMapping("/facturas/{id}")
     public ResponseEntity<FacturaEntity> readById(@PathVariable long id) {
-        return facturaService.readById(id)  // nota: readbyId con b minúscula según tu servicio
+        return facturaServices.readById(id)  // nota: readbyId con b minúscula según tu servicio
                 .map(factura -> ResponseEntity.ok(factura))  // si existe, 200 OK
                 .orElse(ResponseEntity.notFound().build()); // si no existe, 404
     }
@@ -37,7 +37,7 @@ public class FacturaController {
     @PostMapping("/facturas")
     public ResponseEntity<ResponseFactura> create(@Validated @RequestBody RequetsFactura requetsFactura) {
 
-        ResponseFactura responseFactura = facturaService.create(requetsFactura);
+        ResponseFactura responseFactura = facturaServices.create(requetsFactura);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseFactura);
     }
@@ -46,12 +46,12 @@ public class FacturaController {
             @PathVariable long id,
             @RequestBody RequetsFactura requetsFactura) {
 
-        return facturaService.update(id, requetsFactura);
+        return facturaServices.update(id, requetsFactura);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarFactura(@PathVariable Long id) {
         try {
-            facturaService.DelateById(id);
+            facturaServices.DelateById(id);
             return ResponseEntity.ok("Factura eliminada correctamente.");
         } catch (RuntimeException e) {
             // Retorna 404 si no se encuentra la factura
@@ -66,7 +66,7 @@ public class FacturaController {
             @RequestParam Double monto) {
 
         List<FacturaEntity> facturas =
-                facturaService.findByMontoFacturaGreaterThanEqual(monto);
+                facturaServices.findByMontoFacturaGreaterThanEqual(monto);
 
         return ResponseEntity.ok(facturas);
     }
